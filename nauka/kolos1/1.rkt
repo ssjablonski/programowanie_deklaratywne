@@ -32,3 +32,10 @@
 ; (filter even? '(4 3 5 6))
 ; (cons 4 (filter even? (3 5 6)))
 ; (cons 4 (cons ))
+
+(define (inorder t)
+  (if (null? t) '()
+      (append (inorder (cadr t)) (list (car t)) (inorder (caddr t)))
+      ))
+
+(inorder '(4 (3 () ()) (2 (9 () ()) (7 () ()))))
